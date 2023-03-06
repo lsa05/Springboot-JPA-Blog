@@ -16,6 +16,7 @@ let index = {
 			//console.log(data);
 			
 			$.ajax().done().fail();//ajax통신을 이용해서 3개의 데이터를 json으로 변경하여 insert 요청!!	
+					
 								
 		}
 }
