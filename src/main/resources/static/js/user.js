@@ -4,6 +4,9 @@ let index = {
 			this.save();
 		});
 
+		$("#btn-update").on("click", () => {//function(){}을 사용하지 않고 ()=>{}을 사용하는 이유 : this를 바인딩 하기 위해서 사용
+			this.update();
+		});
 	},
 
 	//회원가입
@@ -31,6 +34,29 @@ let index = {
 		}).done(function(resp) {
 			alert("회원가입이 완료되었습니다.");
 			//console.log(resp);
+			location.href = "/";
+		}).fail(function(error) {
+			alert(JSON.stringify(error));
+		});
+	},
+	
+	//회원정보수정
+	update: function() {
+		let data = {
+			id: $("#id").val(),
+			username: $("#username").val(),
+			password: $("#password").val(),
+			email: $("#email").val(),
+		};
+
+		$.ajax({
+			type: "PUT",
+			url: "/user",
+			data: JSON.stringify(data),  
+			contentType: "application/json; charset=utf-8",
+			dataType: "json" 
+		}).done(function(resp) {
+			alert("회원정보수정이 완료되었습니다.");
 			location.href = "/";
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
