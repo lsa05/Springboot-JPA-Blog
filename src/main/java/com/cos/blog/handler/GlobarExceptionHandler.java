@@ -13,6 +13,6 @@ public class GlobarExceptionHandler {
 
 	@ExceptionHandler(value=IllegalArgumentException.class) // IllegalArgumentException이 발생하였을 때 
 	public ResponseDto<String> handleArgumentException(Exception e) {
-		return new ResponseDto<String>(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage()); 
+		return new ResponseDto<String>(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage()); //500 
 	}
 }
