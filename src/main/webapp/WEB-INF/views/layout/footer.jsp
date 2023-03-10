@@ -2,8 +2,8 @@
 </br>
 <div class="jumbotron text-center" style="margin-bottom: 0">
 	<p>Created by lsa</p>
-	<p>010-7666-5176</p>
-	<p>광주광역시</p>
+	<p>010-0000-0000</p>
+	<p>대한민국</p>
 </div>
 </body>
 </html>

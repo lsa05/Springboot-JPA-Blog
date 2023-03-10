@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 //static이하에 있는 /js/**, /css/**, /image/**
 
 @Controller
-public class UserController {
+public class UserController {									//회원가입, 로그인, 회원정보 수정에 대한 view를 보여주는 역할만 수행하는 컨트롤러
 
 	//회원가입
 	@GetMapping("/auth/joinForm")
@@ -21,6 +21,13 @@ public class UserController {
 	public String loginForm() { 
 		return "user/loginForm";
 	}	
+	
+	//회원정보수정
+	@GetMapping("/user/updateForm")
+	public String updateForm() { 
+		return "user/updateForm";
+	}
+	
 	
 	//카카오 로그인
 //	@GetMapping("auth/kakao/callback")
@@ -55,9 +62,4 @@ public class UserController {
 //		return "카카오 토큰 요청 완료 : 토큰 요청에 대한 응답 "+response.getBody();
 //	}
 	
-	//회원정보수정
-	@GetMapping("/user/updateForm")
-	public String updateForm() { 
-		return "user/updateForm";
-	}
 }
