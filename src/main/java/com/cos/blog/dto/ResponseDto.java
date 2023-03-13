@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ResponseDto<T> {					//REST API의 응답을 담는 DTO
 	int status;												//HTTP 응답 상태 코드를 저장한다. 예를 들어, HTTP 응답이 성공했을 경우 200(OK), 클라이언트 오류가 발생했을 경우 4xx, 서버 오류가 발생했을 경우 5xx 등이 저장
-	T data;														//REST API에서 클라이언트로 전송할 데이터를 저장하는 제네릭 타입의 멤버 변수
+	T data;														//REST API에서 클라이언트로 전송할 데이터를 저장하는 제네릭 타입의 멤버 변수, 어떤 타입의 데이터라도 처리한다.
 }																	//이를 JSON 형식으로 변환하여 클라이언트에게 전송함으로써, 서버에서 처리된 결과를 클라이언트가 쉽게 확인할 수 있도록 한다.
 
 /*

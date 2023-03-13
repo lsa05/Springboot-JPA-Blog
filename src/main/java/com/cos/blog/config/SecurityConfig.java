@@ -44,16 +44,17 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable() 											// csrf 토큰 비활성화(테스트시 걸어두는 게 좋음)
-				.authorizeRequests().antMatchers("/", "/auth/**", "/js/**", "/css/**", "/image/**", "/dummy/**")
+				.authorizeRequests()									//요청에 대한 권한 설정을 하는 메소드
+				.antMatchers("/", "/auth/**", "/js/**", "/css/**", "/image/**", "/dummy/**") //URL 패턴을 정의하여 해당 패턴에 대한 접근 권한을 설정
 				.permitAll()   												//해당 경로에 대한 접근을 누구나 허용
 				.anyRequest()												//설정한 경로 이외에 다른 모든 요청
 				.authenticated()											//모든 요청에 대해 인증이 필요하다. 따라서 이 설정 이후의 모든 요청은 인증이 필요하게 된다.
 			.and()
 				.formLogin() 												// form 기반 로그인 활성화
 				.loginPage("/auth/loginForm")					// 로그인 페이지 설정
-				.loginProcessingUrl("/auth/loginProc")	// 시큐리티가 해당주소로 요청되는 로그인을 가로채서 대신 로그인해준다.
+				.loginProcessingUrl("/auth/loginProc")	// 로그인 처리를 담당하는 URL, 시큐리티가 해당주소로 요청되는 로그인을 가로채서 대신 로그인해준다.
 				.defaultSuccessUrl("/"); 								// 로그인 성공시 이동할 페이지
 
-		return http.build();  //??
+		return http.build(); 											 // HttpSecurity 객체를 SecurityFilterChain으로 묶어 반환
 	}
 }

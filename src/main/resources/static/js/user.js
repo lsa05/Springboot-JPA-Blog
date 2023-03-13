@@ -40,7 +40,6 @@ let index = {                                        						 //'index'라는 이�
 				location.href = "/";  							                       		//메인 페이지로 이동
 			}
 
-
 		}).fail(function(error) {                         								//AJAX 통신 실패시 실행될 메서드
 			alert(JSON.stringify(error));                  							//에러메세지 출력
 		});
