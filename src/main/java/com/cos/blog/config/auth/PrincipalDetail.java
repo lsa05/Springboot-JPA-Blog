@@ -58,12 +58,13 @@ public class PrincipalDetail implements UserDetails{
 		return true;
 	}
 	
-	//계정이 갖고 있는 권한 목록을 리턴한다. (권한이 여러개 있을 수 있어서 루프를 돌아야 하는데 우리는 한개만!!)
+	//계정이 갖고 있는 권한 목록을 리턴한다. (권한이 여러개 있을 수 있을땐 for문을 돌아야 하는데 우리는 한개만!!)
+	//GrantedAuthority를 상속한 Collection타입
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
 		Collection<GrantedAuthority> collectors = new ArrayList<>();	
-		collectors.add(()->{return "ROLE_"+user.getRole();});
+		collectors.add(()->{return "ROLE_"+user.getRole();});  //"ROLE_" 이 부분은 규칙임.. 꼭 넣어줘야 함, 결과적으로 ROLE_USER 이런식으로 리턴됨
 		return collectors;
 	}
 	

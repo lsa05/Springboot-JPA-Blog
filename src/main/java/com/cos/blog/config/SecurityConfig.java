@@ -38,7 +38,7 @@ public class SecurityConfig {
 	 */
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(principalDetailService).passwordEncoder(encodePWD());
-	}  //뭔소릴까.......???????
+	}  //
 	
 	// SecurityFilterChain 빈 등록, HttpSecurity를 통한 URL 권한 설정
 	@Bean
